@@ -1,230 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Page: Your name here</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page: Your name here</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-    /* reset css to default */
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    }
+        /* reset css to default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    /* set the page background and styles */
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: lightcyan;
-    }
+        /* set the page background and styles */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: lightcyan;
+        }
 
-    /* Start of styling header and nav */
-    /* ******************************* */
+        /* Start of styling header and nav */
+        /* ******************************* */
 
-    /* set the header styles */
-    .header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 20px 70px 70px;  /*top , right, bottom, left*/
-        width: 80%;
-        margin: auto;
-    }
+        /* set the header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 70px 70px;
+            /*top , right, bottom, left*/
+            width: 80%;
+            margin: auto;
+            border-bottom: 3px solid rgb(0, 255, 255, 0.3);
+            /* red, green, blue, opacity */
+            margin-bottom: 10px;
+        }
 
-    /* set the logo styles */
-    .sectiontitle, .logo{
-        font-size: 45px;
-        font-weight: 700;
-        color: lightseagreen;
-    }
+        /* set the logo styles */
+        .sectiontitle,
+        .logo {
+            font-size: 45px;
+            font-weight: 700;
+            color: lightseagreen;
+        }
 
-    /* set the navigation styles */
-    nav ul{
-        display: flex;
-    }
+        /* set the navigation styles */
+        nav ul {
+            display: flex;
+        }
 
-    nav ul li{
-        list-style: none;
-        margin-inline: 30px;
-    }
+        nav ul li {
+            list-style: none;
+            margin-inline: 30px;
+        }
 
-    nav ul li a{
-        color: teal;
-        text-decoration: none;
-    }
+        nav ul li a {
+            color: teal;
+            text-decoration: none;
+        }
 
-    nav ul li:hover a{
-        color:#fdbd31;
-        transition: 0.3s;
-    }
+        nav ul li:hover a {
+            color: #fdbd31;
+            transition: 0.3s;
+        }
 
-    /* ***************************** */
-    /* End of styling header and nav */
-
-
-    /* Start of styling mainsection */
-    /* **************************** */
-    
-    /* set the main cointainer as a grid of columns */
-    #mainsection {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        column-gap: 20px;
-        margin: auto;
-        width: 80%;
-        height: 100dvh;
-    }
-
-    /* set the left div column */
-    /* A short intro on how flex works: https://www.youtube.com/watch?v=_tlxwc9ssH4 */
-    .left-div {
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center; */
-        align-items: end;
-    }
-
-    /* set the right div column */
-    .right-div {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center; */
-        align-items: normal;
-    }
-
-    /* set the profilecontainer */
-    .profilecontainer {
-        display: flex;
-        align-items: center;
-        padding-left: 10px;
-        margin-bottom: 10px;
-        width: 300px;
-    }
-
-    /* set the profile details */
-    .profiledetails {
-        display: block;
-        padding: 20px;
-        width: 280px;
-        margin-right: 10px;
-        color: gray;
-        font-weight: normal;
-    }
-
-    /* set the rounded image */
-    .rounded-image {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin: 0px 5px 0px 5px;
-        border: 5px solid white;
-    }
-
-    /* set the profile text (targets span tags within <p> tags in profilecontainer class) */
-    .profilecontainer p span {
-        display: block;
-    }
-
-    /* set the profile text (targets span tags within <p> tags in profilecontainer class) */
-    .strong {
-        font-weight: bold;
-    }
-
-    /* set the profile details' list */
-    .profiledetails ul li{
-        list-style-type: none;
-        font-size: small;
-        padding-left: 20px;
-        line-height: 25px;
-    }
-
-    /* sets the subheaders within profiledetails class */
-    .profiledetails .subheader{
-        display: block;
-        margin-top: 10px;
-        padding: 5px 0px;
-        font-size: medium;
-        border-bottom: 1px dashed lightblue;
-        border-top: 1px dashed lightblue;
-    }
-
-    /* set the linkscontainer */
-    .linkcontainer{
-        display: flex;
-        margin-top: 10px;
-    }
-
-    /* set the <a> tags' styles */
-    .linkcontainer a{
-        padding: 10px 20px;
-        font-size: 16px;
-        background: teal;
-        color: white;
-        border: 2px solid #fff;
-        border-radius: 10px;
-        margin-right: 5px;
-        cursor: pointer;
-        text-decoration: none;
-    }
-
-    .text{
-        margin-top: 100px;
-    }
-
-    /* set the text class style for the animated text in <h1> tag */
-    .text h1{
-    font-size: 36px;
-    line-height: 72px;
-    letter-spacing: 2px;
-    color: lightslategray;
-    }
-
-    /* set the <a> link tags' style (targets <a> tags within text class) */
-    .text p{
-        font-size: 16px;
-        letter-spacing: 1px;
-        line-height: 30px;
-        padding-bottom: 20px;
-    }
-
-    /* ************************** */
-    /* End of styling mainsection */
+        /* ***************************** */
+        /* End of styling header and nav */
 
 
-    /* Start of styling projectsection */
-    /* ******************************* */
+        /* Start of styling mainsection */
+        /* **************************** */
 
-        /* Include the styles for projectsection here */
+        /* set the main cointainer as a grid of columns */
+        #mainsection {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            column-gap: 20px;
+            margin: auto;
+            width: 80%;
+            height: 100dvh;
+            border-bottom: 3px solid rgb(0, 255, 255, 0.3);
+            /* red, green, blue, opacity */
+            margin-bottom: 10px;
+        }
 
-    /* ***************************** */
-    /* End of styling projectsection */
+        /* set the left div column */
+        /* A short intro on how flex works: https://www.youtube.com/watch?v=_tlxwc9ssH4 */
+        .left-div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: end;
+        }
 
-</style>
+        /* set the right div column */
+        .right-div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: normal;
+        }
+
+        /* set the profilecontainer */
+        .profilecontainer {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        /* set the profile details */
+        .profiledetails {
+            display: block;
+            padding: 20px;
+            width: 280px;
+            margin-right: 10px;
+            color: gray;
+            font-weight: normal;
+        }
+
+        /* set the rounded image */
+        .rounded-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0px 5px 0px 5px;
+            border: 5px solid white;
+        }
+
+        /* set the profile text (targets span tags within <p> tags in profilecontainer class) */
+        .profilecontainer p span {
+            display: block;
+        }
+
+        /* set the profile text (targets span tags within <p> tags in profilecontainer class) */
+        strong {
+            font-weight: bold;
+            color: rgb(231, 96, 102, 0.8);
+        }
+
+        /* set the profile details' list */
+        .profiledetails ul li {
+            list-style-type: none;
+            font-size: small;
+            padding-left: 20px;
+            line-height: 25px;
+        }
+
+        /* sets the subheaders within profiledetails class */
+        .profiledetails .subheader {
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0px;
+            font-size: medium;
+            border-bottom: 1px dashed lightblue;
+            border-top: 1px dashed lightblue;
+        }
+
+        /* set the linkscontainer */
+        .linkcontainer {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        /* set the <a> tags' styles */
+        .linkcontainer a {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: teal;
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .text {
+            margin-top: 100px;
+        }
+
+        /* set the text class style for the animated text in <h1> tag */
+        .text h1 {
+            font-size: 36px;
+            line-height: 72px;
+            letter-spacing: 2px;
+            color: lightslategray;
+        }
+
+        /* set the <a> link tags' style (targets <a> tags within text class) */
+        .text p {
+            font-size: 16px;
+            letter-spacing: 1px;
+            line-height: 30px;
+            padding-bottom: 20px;
+        }
+
+        /* ************************** */
+        /* End of styling mainsection */
+
+
+        /* Start of styling projectsection */
+        /* ******************************* */
+
+        /* Set projectsection's style*/
+        #projectsection {
+            width: 80%;
+            margin: auto;
+            height: 100dvh;
+        }
+
+        /* Set the showcasecontainer to list the projects, repeated in equal columns of 3s per fractional unit */
+        .showcasecontainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Set the card background to white */
+        .projectcard {
+            font-size: small;
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding-bottom: 24px;
+        }
+
+        /* Set the projectsection grid container's content with a left padding */
+        .projectcard h4,
+        .projectcard p {
+            padding-left: 16px;
+        }
+
+        /* Set the image in the project card */
+        .projectcard img {
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 180px;
+            /* 60% */
+            background-size: cover;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            background-image: url("img/imgplaceholder.png");
+            /* text-indent: -9999px; */
+            /* remove or comment out text indent if all images are available */
+        }
+
+        /* Set the projectcard title's style (set the text to be uppercase) */
+        .projectcard .scope {
+            text-transform: uppercase;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        /* Set mouseover effect for project card */
+        .projectcard:hover {
+            transition: 0.45s ease-out;
+            transform: scale(1.05);
+        }
+
+        .projectcard a {
+            text-decoration: none;
+            color: gray;
+            transform: scale(1.0);
+        }
+
+        .projectcard span {
+            font-size: x-small;
+            align-content: space-between;
+            border-radius: 6px;
+            margin: 4px;
+            background-color: lightseagreen;
+            padding: 5px 10px;
+            display: inline-block;
+            color: #FFFFFF;
+            white-space: nowrap;
+        }
+
+        .text h1 {
+            color: rgb(231, 96, 102, 0.8);
+        }
+
+        /* ***************************** */
+        /* End of styling projectsection */
+
+        /* Start of styling miscellaneous elements */
+        /* *************************************** */
+
+        .top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: lightseagreen;
+            font-size: small;
+        }
+
+        /* ************************************* */
+        /* End of styling miscellaneous elements */
+    </style>
 </head>
+
 <body>
+    <!-- https://github.com/thinktinker/htmlcssactivity/ -->
 
     <!-- Set up your page structure here -->
 
+    <!-- Start of header -->
+    <a name="top"></a><!-- Creating a bookmark at this area called top -->
+    <header>
+        <div class="logo">
+            <!-- Image of logo -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#top">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- End of header -->
+
+    <!-- Start of main section -->
+    <section id="mainsection">
+        <!-- Left area of main section -->
+        <div class="left-div">
+            <div class="profilecontainer">
+                <img src="img/alex.png" alt="alex" class="rounded-image">
+                <p>
+                    <strong>Chong wei</strong>
+                    <span>Junior full-stack developer</span>
+                </p>
+            </div>
+
+            <div class="profiledetails">
+                <strong class="subheader">Codes in:</strong>
+                <ul>
+                    <li>HTML . CSS . JavaScript</li>
+                    <li>Java</li>
+                    <li>SQL</li>
+                </ul>
+                <strong class="subheader">Works with:</strong>
+                <ul>
+                    <li>React</li>
+                    <li>Springboot</li>
+                    <li>jUnit + Mockito (Unit Tests)</li>
+                </ul>
+                <strong class="subheader">Builds using:</strong>
+                <ul>
+                    <li>GitHub</li>
+                    <li>IntelliJ IDEA</li>
+                    <li>MySQL WorkBench</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Right area of main section -->
+        <div class="right-div">
+            <div class="text">
+                <h1>Hi! <span class="typing"></span></h1>
+                <p>Good day, visitor. Use this starter template as your start your portfolio development journey.</p>
+                <div class="linkcontainer">
+                    <a href="#projects">View projects below.</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of main section -->
+
+    <!-- Start of project section, using grids -->
+    <a name="projects"></a>
+    <section id="projectsection">
+
+        <div class="sectiontitle">Projects</div>
+        <div class="showcasecontainer">
+
+            <!-- Project card #1 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/web-design.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>Community Web Portal Design</h4>
+                    <p class="scope">Web Page Design</p>
+                    <p><span>UI/UX</span><span>HTML</span><span>CSS</span></p>
+                </a>
+            </div>
+
+            <!-- Project card #2 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/mobile-app.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>Expense Calculator Web App</h4>
+                    <p class="scope">JavaScript Development</p>
+                    <p><span>User Interaction</span><span>Application Logic</span></p>
+                </a>
+            </div>
+
+            <!-- Project card #3 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/data-tracking.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>Enrollment Tracker</h4>
+                    <p class="scope">Database Design</p>
+                    <p><span>SQL</span><span>Data Analysis</span></p>
+                </a>
+            </div>
+
+            <!-- Project card #4 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/chess.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>Chess Game</h4>
+                    <p class="scope">Java</p>
+                    <p><span>Game Development</span></p>
+                </a>
+            </div>
+
+            <!-- Project card #5 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/fitness-tracking.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>Fitness Tracker</h4>
+                    <p class="scope">App Development</p>
+                    <p><span>SwiftUI</span><span>Swift Programming</span></p>
+                </a>
+            </div>
+
+            <!-- Project card #6 -->
+            <div class="projectcard">
+                <a href="#">
+                    <img src="img/photography.jpg" alt="Add a description here">
+                    <!-- Project name -->
+                    <h4>SG Arts Award</h4>
+                    <p class="scope">Photography</p>
+                    <p><span>Creative</span><span>Competition</span></p>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Back to top button -->
+        <div class="top">
+            <a href="#top">&#x25B2; Back to Top</a>
+        </div>
+
+    </section>
+    <!-- End of project section, using grids -->
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        
 
-    var options = {
-        strings: ['I&apos;m &lt;Your Name Here!&gt;', 'Thanks for visiting!'],
-        typeSpeed: 100,
-        backSpeed:100,
-        loop: false
-    };
-    var typed = new Typed('.typing', options);
+
+        var options = {
+            strings: ['I&apos;m Chong Wei!', 'Thanks for visiting!'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: false
+        };
+        var typed = new Typed('.typing', options);
 
     </script>
 </body>
+
 </html>
